@@ -1,7 +1,7 @@
 import { Body, Controller, Get, Param, Post } from '@nestjs/common';
 import { CurrencyService } from '../service/currency.service';
 import { Currency } from '../entity/currency.entity';
-import { CurrencyDto } from '../dto/currency.dto';
+import { CurrencyCreateDto } from '../dto/currencyCreate.dto';
 
 @Controller()
 export class CurrencyController {
@@ -18,7 +18,7 @@ export class CurrencyController {
   }
 
   @Post('/currency')
-  postCurrency(@Body() data: CurrencyDto): Promise<Currency> {
+  postCurrency(@Body() data: CurrencyCreateDto): Promise<Currency> {
     return this.currencyService.create(data);
   }
 }

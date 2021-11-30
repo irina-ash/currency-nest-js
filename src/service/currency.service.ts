@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { getRepository } from 'typeorm';
 import { Currency } from '../entity/currency.entity';
-import { CurrencyDto } from '../dto/currency.dto';
+import { CurrencyCreateDto } from '../dto/currencyCreate.dto';
 
 @Injectable()
 export class CurrencyService {
@@ -13,11 +13,9 @@ export class CurrencyService {
     return getRepository(Currency).findOne(id);
   }
 
-  async create(data: CurrencyDto) {
-    return getRepository(Currency).save({
-      name: data.name,
-      value: data.value,
-    });
+  async create(data: CurrencyCreateDto) {
+    const newItem = await getRepository(Currency).create(data);
+    return await getRepository(Currency).save(newItem);
   }
 
   async remove(id: string): Promise<void> {

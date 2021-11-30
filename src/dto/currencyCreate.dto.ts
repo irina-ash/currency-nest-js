@@ -1,4 +1,4 @@
-export class CurrencyDto {
+export class CurrencyCreateDto {
   name: string;
   value: number;
 }
