@@ -7,8 +7,8 @@ services:
     restart: always
     environment:
       POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: docker
-      POSTGRES_DB: db
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: currency_db
     volumes:
       - "postgres-db:/var/lib/postgresql/data"
       - "./docker/postgres.conf:/etc/postgresql/postgres.conf"
