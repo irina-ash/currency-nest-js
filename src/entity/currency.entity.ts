@@ -1,6 +1,6 @@
 import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
 
-@Entity()
+@Entity('currencies')
 export class Currency {
   @PrimaryGeneratedColumn('uuid')
   id: string;
@@ -10,6 +10,9 @@ export class Currency {
 
   @Column({ type: 'decimal', nullable: false })
   value: number;
+
+  @Column({ type: 'varchar', nullable: false })
+  test: string;
 
   @Column({
     name: 'created_at',

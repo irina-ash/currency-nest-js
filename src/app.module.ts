@@ -4,12 +4,11 @@ import { AppService } from './app.service';
 import { AuthModule } from './module/auth.module';
 import { CurrencyModule } from './module/currency.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { CurrencyController } from './controller/currency.controller';
-import { CurrencyService } from './service/currency.service';
+import { LoggerModule } from './module/logger.module';
 
 @Module({
-  imports: [TypeOrmModule.forRoot(), AuthModule, CurrencyModule],
-  controllers: [AppController, CurrencyController],
-  providers: [AppService, CurrencyService],
+  imports: [TypeOrmModule.forRoot(), AuthModule, CurrencyModule, LoggerModule],
+  controllers: [AppController],
+  providers: [AppService],
 })
 export class AppModule {}
